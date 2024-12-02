@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <link href="/styles/style.css" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1>Home Page</h1>
+      <i class="add__icon fas fa-plus" title="Add a record"></i>
+    </div>
+    <hr />
+
+    <!-- Search bar -->
+    <div class="search">
+      <i class="add_icon fas fa-search"></i>
+      <input type="text" placeholder="Type in here..." />
+      <button>Search</button>
+    </div>
+
+    <!-- Homepage Table -->
+    <div class="table__container">
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+        <!-- Loop through mappedData and display each item -->
+        <% mappedData.forEach(item => { %>
+        <tr>
+          <td><%= item.name %></td>
+          <td><%= item.category %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.price.toFixed(2) %></td>
+          <td class="desc"><%= item.description %></td>
+          <td>
+            <i class="edit__icon fas fa-edit" title="Edit a record"></i>
+            <i class="delete__icon fas fa-trash" title="Delete a record"></i>
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,450 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+$darkerBlue: #005f8b;
+$blue: #0077b6;
+$lighterBlue: #3399cc;
+$darkerRed: #9b1c31;
+$red: #d32f2f;
+$lighterRed: #f44336;
+$darkerGreen: #2d6a4f;
+$green: #388e3c;
+$lighterGreen: #66bb6a;
+$black: #000000;
+$lighterBlack: #212121;
+$white: #ffffff;
+$darkerGray: #808080;
+$gray: #bcbcbc;
+$lighterGray: #d3d3d3;
+
+body {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 1rem;
+  margin: 5% 10%;
+  font-size: small;
+  color: $black;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  h1 {
+    font-size: large;
+  }
+
+  .add__icon {
+    font-size: large;
+    background-color: $green;
+    color: $lighterGreen;
+    padding: 0.8rem 0.9rem;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $lighterGreen;
+      color: $green;
+      transition: background-color 0.3s ease-in-out;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+}
+
+.search {
+  width: 100%;
+  margin: auto;
+  padding: 0.2rem 0.15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 0 1px $gray;
+  border-radius: 5px;
+
+  i {
+    padding-left: 0.5rem;
+    color: $gray;
+  }
+
+  input {
+    width: 80%;
+    padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: small;
+    color: $black;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  &:focus-within {
+    border: none;
+    box-shadow: inset 0 0 0 2px $blue;
+  }
+
+  button {
+    width: 20%;
+    padding: 0.5rem;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: $blue;
+    color: $white;
+    cursor: pointer;
+
+    &:hover {
+      background: $lighterBlue;
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+}
+
+.table__container {
+  max-width: 100%;
+  margin: auto;
+  overflow-x: auto;
+
+  table {
+    white-space: nowrap;
+
+    tr {
+      &:first-child {
+        background: $blue;
+        color: $white;
+      }
+
+      &:nth-child(n + 2):hover {
+        background: $lighterGray;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      &:last-child {
+        td:first-child {
+          border-bottom-left-radius: 5px;
+        }
+
+        td:last-child {
+          border-bottom-right-radius: 5px;
+        }
+      }
+
+      th {
+        padding: 0.5rem;
+        text-align: center;
+        color: $white;
+
+        &:first-child {
+          border-top-left-radius: 5px;
+          padding: 2px;
+        }
+
+        &:last-child {
+          border-top-right-radius: 5px;
+        }
+      }
+
+      td {
+        text-align: center;
+        padding: 0.5rem;
+
+        &:last-child {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          .edit__icon {
+            font-size: large;
+            padding: 0.4rem;
+            color: $lighterBlue;
+            cursor: pointer;
+
+            &:hover {
+              color: $blue;
+              transition: background-color 0.3s ease-in-out;
+            }
+          }
+
+          .delete__icon {
+            color: $lighterRed;
+            font-size: large;
+            padding: 0.4rem;
+            cursor: pointer;
+
+            &:hover {
+              color: $red;
+              transition: background-color 0.3s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form {
+  width: 100%;
+  margin: 5% auto;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .input-field {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      padding: 0.5rem;
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      font-size: small;
+      box-shadow: inset 0 0 0 1px $gray;
+      color: $black;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
+      &:focus-within {
+        box-shadow: inset 0 0 0 2px $blue;
+      }
+    }
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .dual {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+
+    .input-field {
+      width: 47.5%;
+    }
+  }
+
+  button {
+    padding: 0.5rem;
+    font-size: small;
+    border: none;
+    border-radius: 5px;
+    background-color: $blue;
+    color: $white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: $lighterBlue;
+    transition: background-color 0.3s ease-in-out;
+  }
+}
+
+.delete__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+  .delete__modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
+    text-align: center;
+    border: 1px solid $lighterGray;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+    i {
+      font-size: xx-large;
+      color: $red;
+    }
+
+    .selections {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      padding: 0.5rem;
+      gap: 3%;
+
+      button {
+        width: 48.5%;
+        padding: 0.6rem;
+        border: none;
+        border-radius: 10px;
+        background-color: transparent;
+        color: transparent;
+        color: $white;
+        font-weight: bold;
+        cursor: pointer;
+
+        &.cancel {
+          background-color: $lighterGray;
+
+          &:hover {
+            background-color: $gray;
+          }
+        }
+
+        &.delete {
+          background-color: $red;
+
+          &:hover {
+            background-color: $lighterRed;
+          }
+        }
+      }
+    }
+  }
+}
+
+// For tablets
+@media only screen and (min-width: 768px) {
+  .search {
+    width: 100%;
+    padding: 0.2rem 0.2rem;
+
+    input {
+      width: 90%;
+      font-size: medium;
+    }
+
+    button {
+      width: 10%;
+      padding: 0.6rem;
+    }
+  }
+
+  .form {
+    width: 80%;
+
+    .dual {
+      gap: 4%;
+
+      .input-field {
+        width: 48%;
+      }
+    }
+  }
+
+  .delete__container {
+    .delete__modal {
+      padding: 3rem;
+    }
+  }
+}
+
+// For laptops
+@media only screen and (min-width: 1024px) {
+  body {
+    margin: 3% 10%;
+    font-size: medium;
+  }
+
+  .search {
+    width: 100%;
+    padding: 0.2rem 0.15rem;
+
+    input {
+      width: 90%;
+      font-size: medium;
+    }
+
+    button {
+      width: 10%;
+      padding: 0.6rem;
+    }
+  }
+
+  .header {
+    h1 {
+      font-size: x-large;
+    }
+  }
+
+  .form {
+    .input-field {
+      input {
+        padding: 0.7rem;
+        font-size: medium;
+      }
+    }
+
+    button {
+      padding: 0.7rem;
+      font-size: medium;
+    }
+  }
+
+  .delete__container {
+    .delete__modal {
+      padding: 4rem;
+    }
+  }
+}
+
+// For desktops
+@media only screen and (min-width: 1440px) {
+  body {
+    margin: 2% 10%;
+  }
+
+  .search {
+    width: 100%;
+    padding: 0.2rem 0.21rem;
+
+    input {
+      width: 90%;
+      font-size: medium;
+    }
+
+    button {
+      width: 10%;
+      padding: 0.58rem;
+    }
+  }
+
+  .form {
+    .input-field {
+      input {
+        padding: 0.7rem;
+        font-size: medium;
+      }
+    }
+    .dual {
+      gap: 3%;
+
+      .input-field {
+        width: 48.5%;
+      }
+    }
+
+    button {
+      padding: 0.7rem;
+      font-size: medium;
+    }
+  }
+
+  .delete__container {
+    .delete__modal {
+      padding: 5rem;
+    }
+  }
+}
