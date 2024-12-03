@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Page</title>
+    <title>Edit Page</title>
     <link href="/styles/style.css" rel="stylesheet" type="text/css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,36 +17,66 @@
     />
   </head>
   <body>
-    <div class="header">
-      <h1>Add Page</h1>
-    </div>
+    <header>
+      <div class="title">
+        <button aria-label="Home">
+          <i class="fas fa-home" title="Home"></i>
+        </button>
+        <h1>Add Page</h1>
+      </div>
+    </header>
     <hr />
 
     <!-- Add Form -->
     <form class="form" action="">
       <div class="input-field">
         <label for="name">Name:</label>
-        <input type="text" />
+        <input
+          id="name"
+          type="text"
+          placeholder="Enter name..."
+          aria-label="Enter your name"
+        />
       </div>
       <div class="input-field">
         <label for="category">Category:</label>
-        <input type="text" />
+        <input
+          id="category"
+          type="text"
+          placeholder="Enter category..."
+          aria-label="Enter your category"
+        />
       </div>
       <div class="dual">
         <div class="input-field">
           <label for="quantity">Quantity</label>
-          <input type="text" />
+          <input
+            id="quantity"
+            type="text"
+            placeholder="Enter quantity..."
+            aria-label="Enter your quantity"
+          />
         </div>
         <div class="input-field">
           <label for="price">Price:</label>
-          <input type="text" />
+          <input
+            id="price"
+            type="text"
+            placeholder="Enter price..."
+            aria-label="Enter your price"
+          />
         </div>
       </div>
       <div class="input-field">
         <label for="description">Description:</label>
-        <input type="text" />
+        <input
+          id="description"
+          type="text"
+          placeholder="Enter description..."
+          aria-label="Enter your description"
+        />
       </div>
-      <button>Submit</button>
+      <button aria-label="Submit">Submit</button>
     </form>
   </body>
 </html>

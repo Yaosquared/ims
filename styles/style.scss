@@ -18,7 +18,7 @@ $lighterBlack: #212121;
 $white: #ffffff;
 $darkerGray: #808080;
 $gray: #bcbcbc;
-$lighterGray: #d3d3d3;
+$lighterGray: #f2f2f2;
 
 body {
   font-family: "Inter", sans-serif;
@@ -31,11 +31,28 @@ body {
   color: $black;
 }
 
-.header {
+header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+
+      i {
+        font-size: x-large;
+      }
+    }
+  }
 
   h1 {
     font-size: large;
@@ -45,7 +62,7 @@ body {
     font-size: large;
     background-color: $green;
     color: $lighterGreen;
-    padding: 0.8rem 0.9rem;
+    padding: 0.6rem 0.7rem;
     border-radius: 5px;
     cursor: pointer;
 
@@ -58,132 +75,148 @@ body {
   }
 }
 
-.search {
-  width: 100%;
-  margin: auto;
-  padding: 0.2rem 0.15rem;
+main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: inset 0 0 0 1px $gray;
-  border-radius: 5px;
+  flex-direction: column;
+  gap: 1rem;
 
-  i {
-    padding-left: 0.5rem;
-    color: $gray;
-  }
+  .search {
+    width: 100%;
+    margin: auto;
+    padding: 0.2rem 0.15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1px $gray;
+    border-radius: 5px;
 
-  input {
-    width: 80%;
-    padding: 0.5rem;
-    background-color: transparent;
-    border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    font-size: small;
-    color: $black;
-  }
-
-  input:focus {
-    outline: none;
-  }
-
-  &:focus-within {
-    border: none;
-    box-shadow: inset 0 0 0 2px $blue;
-  }
-
-  button {
-    width: 20%;
-    padding: 0.5rem;
-    border: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background: $blue;
-    color: $white;
-    cursor: pointer;
-
-    &:hover {
-      background: $lighterBlue;
-      transition: background-color 0.3s ease-in-out;
+    i {
+      padding-left: 0.5rem;
+      color: $gray;
     }
-  }
-}
 
-.table__container {
-  max-width: 100%;
-  margin: auto;
-  overflow-x: auto;
+    input {
+      width: 80%;
+      padding: 0.5rem;
+      background-color: transparent;
+      border: none;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      font-size: small;
+      color: $black;
+    }
 
-  table {
-    white-space: nowrap;
+    input:focus {
+      outline: none;
+    }
 
-    tr {
-      &:first-child {
-        background: $blue;
-        color: $white;
-      }
+    &:focus-within {
+      border: none;
+      box-shadow: inset 0 0 0 2px $blue;
+    }
 
-      &:nth-child(n + 2):hover {
-        background: $lighterGray;
+    button {
+      width: 20%;
+      padding: 0.5rem;
+      border: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+      background: $blue;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        background: $lighterBlue;
         transition: background-color 0.3s ease-in-out;
       }
+    }
+  }
 
-      &:last-child {
-        td:first-child {
-          border-bottom-left-radius: 5px;
-        }
+  .table__container {
+    width: 100%;
+    margin: auto;
+    overflow-x: auto;
 
-        td:last-child {
-          border-bottom-right-radius: 5px;
-        }
-      }
+    table {
+      white-space: nowrap;
+      width: 100%;
 
-      th {
-        padding: 0.5rem;
-        text-align: center;
-        color: $white;
-
+      tr {
         &:first-child {
-          border-top-left-radius: 5px;
-          padding: 2px;
+          background: $blue;
+          color: $white;
+        }
+
+        &:nth-child(n + 2):hover {
+          background: $lighterGray;
+          transition: background-color 0.3s ease-in-out;
         }
 
         &:last-child {
-          border-top-right-radius: 5px;
-        }
-      }
-
-      td {
-        text-align: center;
-        padding: 0.5rem;
-
-        &:last-child {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-
-          .edit__icon {
-            font-size: large;
-            padding: 0.4rem;
-            color: $lighterBlue;
-            cursor: pointer;
-
-            &:hover {
-              color: $blue;
-              transition: background-color 0.3s ease-in-out;
-            }
+          td:first-child {
+            border-bottom-left-radius: 5px;
           }
 
-          .delete__icon {
-            color: $lighterRed;
-            font-size: large;
-            padding: 0.4rem;
-            cursor: pointer;
+          td:last-child {
+            border-bottom-right-radius: 5px;
+          }
+        }
 
-            &:hover {
-              color: $red;
-              transition: background-color 0.3s ease-in-out;
+        th {
+          padding: 0.5rem;
+          text-align: center;
+          color: $white;
+
+          &:first-child {
+            border-top-left-radius: 5px;
+            padding: 2px;
+          }
+
+          &:last-child {
+            border-top-right-radius: 5px;
+          }
+        }
+
+        td {
+          text-align: center;
+          padding: 0.5rem;
+
+          &:last-child {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            .action__button {
+              background-color: transparent;
+              border: none;
+              padding: 0.05rem;
+
+              .edit__icon {
+                font-size: large;
+                padding: 0.4rem;
+                color: $lighterBlue;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                  color: $blue;
+                  transition: color 0.3s ease-in-out;
+                }
+              }
+
+              .delete__icon {
+                font-size: large;
+                padding: 0.4rem;
+                color: $lighterRed;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                  color: $red;
+                  transition: color 0.3s ease-in-out;
+                }
+              }
             }
           }
         }
@@ -296,10 +329,10 @@ body {
         cursor: pointer;
 
         &.cancel {
-          background-color: $lighterGray;
+          background-color: $gray;
 
           &:hover {
-            background-color: $gray;
+            background-color: $darkerGray;
           }
         }
 
@@ -317,18 +350,19 @@ body {
 
 // For tablets
 @media only screen and (min-width: 768px) {
-  .search {
-    width: 100%;
-    padding: 0.2rem 0.2rem;
-
-    input {
-      width: 90%;
-      font-size: medium;
+  header {
+    .title {
+      gap: 0.5rem;
     }
+  }
 
-    button {
-      width: 10%;
-      padding: 0.6rem;
+  main {
+    .search {
+      padding: 0.2rem 0.2rem;
+
+      button {
+        padding: 0.6rem;
+      }
     }
   }
 
@@ -353,71 +387,101 @@ body {
 
 // For laptops
 @media only screen and (min-width: 1024px) {
+  header {
+    h1 {
+      font-size: x-large;
+    }
+
+    .title {
+      gap: 0.6rem;
+    }
+  }
+
   body {
     margin: 3% 10%;
     font-size: medium;
   }
 
-  .search {
-    width: 100%;
-    padding: 0.2rem 0.15rem;
+  main {
+    .search {
+      padding: 0.2rem 0.15rem;
 
-    input {
-      width: 90%;
-      font-size: medium;
-    }
-
-    button {
-      width: 10%;
-      padding: 0.6rem;
-    }
-  }
-
-  .header {
-    h1 {
-      font-size: x-large;
-    }
-  }
-
-  .form {
-    .input-field {
       input {
+        font-size: medium;
+      }
+
+      button {
+        padding: 0.6rem;
+      }
+    }
+
+    .header {
+      h1 {
+        font-size: x-large;
+      }
+    }
+
+    .table__container {
+      table {
+        tr {
+          td {
+            &:last-child {
+              .action__button {
+                .edit__icon {
+                  font-size: x-large;
+                }
+
+                .delete__icon {
+                  font-size: x-large;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .form {
+      .input-field {
+        input {
+          padding: 0.7rem;
+          font-size: medium;
+        }
+      }
+
+      button {
         padding: 0.7rem;
         font-size: medium;
       }
     }
 
-    button {
-      padding: 0.7rem;
-      font-size: medium;
-    }
-  }
-
-  .delete__container {
-    .delete__modal {
-      padding: 4rem;
+    .delete__container {
+      .delete__modal {
+        padding: 4rem;
+      }
     }
   }
 }
 
 // For desktops
 @media only screen and (min-width: 1440px) {
+  header {
+    .title {
+      gap: 0.7rem;
+    }
+  }
+
   body {
     margin: 2% 10%;
   }
 
-  .search {
-    width: 100%;
-    padding: 0.2rem 0.21rem;
+  main {
+    .search {
+      padding: 0.2rem 0.21rem;
 
-    input {
-      width: 90%;
-      font-size: medium;
-    }
-
-    button {
-      width: 10%;
-      padding: 0.58rem;
+      button {
+        padding: 0.58rem;
+      }
     }
   }
 
