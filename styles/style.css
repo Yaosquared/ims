@@ -13,6 +13,7 @@ body {
   margin: 5% 10%;
   font-size: small;
   color: #000000;
+  min-height: 100vh;
 }
 
 header {
@@ -31,6 +32,9 @@ header .title button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+header .title button:hover {
+  scale: 1.05;
 }
 header .title button i {
   font-size: x-large;
@@ -95,12 +99,12 @@ main .search button {
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background: #0077b6;
+  background-color: #0077b6;
   color: #ffffff;
   cursor: pointer;
 }
 main .search button:hover {
-  background: #3399cc;
+  background-color: #3399cc;
   transition: background-color 0.3s ease-in-out;
 }
 main .table__container {
@@ -113,11 +117,11 @@ main .table__container table {
   width: 100%;
 }
 main .table__container table tr:first-child {
-  background: #0077b6;
+  background-color: #0077b6;
   color: #ffffff;
 }
 main .table__container table tr:nth-child(n+2):hover {
-  background: #f2f2f2;
+  background-color: #f2f2f2;
   transition: background-color 0.3s ease-in-out;
 }
 main .table__container table tr:last-child td:first-child {
@@ -225,7 +229,7 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   cursor: pointer;
 }
 .form button:hover {
-  background: #3399cc;
+  background-color: #3399cc;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -280,6 +284,37 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
 }
 .delete__container .delete__modal .selections button.delete:hover {
   background-color: #f44336;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+}
+footer .separator {
+  width: 100%;
+}
+footer .logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+footer .logo img {
+  width: 4rem;
+  height: auto;
+}
+footer .logo img:hover {
+  scale: 1.05;
+  cursor: pointer;
+}
+footer .logo h3 {
+  font-size: large;
+}
+footer p {
+  font-size: small;
 }
 
 @media only screen and (min-width: 768px) {

@@ -5,6 +5,8 @@ const placeholderData = require("./data");
 const app = express();
 // get styles from public/assets folder
 app.use("/styles", express.static("styles"));
+app.use("/assets", express.static("assets"));
+
 const mappedData = placeholderData.map((item) => {
   return {
     name: item.name,
