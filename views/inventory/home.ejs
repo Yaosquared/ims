@@ -3,18 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homepage</title>
-    <link href="/styles/style.css" rel="stylesheet" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      rel="stylesheet"
-    />
+    <title>Home Page</title>
+    <%- include("../partial/external-assets") %>
   </head>
   <body class="content">
     <header>
@@ -24,7 +14,11 @@
         </button>
         <h1>Home Page</h1>
       </div>
-      <i class="add__icon fas fa-plus" title="Add a record"></i>
+      <a href="/inventory/new">
+        <button class="add__icon">
+          <i class="fas fa-plus" title="Add record"></i>
+        </button>
+      </a>
     </header>
     <hr />
 
@@ -42,7 +36,7 @@
         <button aria-label="Search">Search</button>
       </section>
 
-      <!-- Homepage Table -->
+      <!-- Home page Table -->
       <section class="table__container">
         <table aria-labelledby="table-title">
           <caption id="table-title" class="sr-only">
@@ -56,30 +50,39 @@
             <th>Description</th>
             <th>Actions</th>
           </tr>
-          <!-- Loop through mappedData and display each item -->
-          <% mappedData.forEach(item => { %>
+          <!-- Loop through placeholderData and display each item -->
+          <% for(let item of placeholderData) { %>
           <tr>
             <td><%= item.name %></td>
             <td><%= item.category %></td>
             <td><%= item.quantity %></td>
-            <td><%= item.price.toFixed(2) %></td>
+            <td><%= item.price %></td>
             <td><%= item.description %></td>
             <td>
+              <button class="action__button" aria-label="View details">
+                <a href="/inventory/<%= item.id %>">
+                  <i class="view__icon fas fa-eye" title="View details"></i>
+                </a>
+              </button>
               <button class="action__button" aria-label="Edit record">
-                <i class="edit__icon fas fa-edit" title="Edit a record"></i>
+                <a href="/inventory/<%= item.id %>/edit">
+                  <i class="edit__icon fas fa-edit" title="Edit record"></i>
+                </a>
               </button>
               <button class="action__button" aria-label="Delete record">
-                <i
-                  class="delete__icon fas fa-trash"
-                  title="Delete a record"
-                ></i>
+                <a href="/inventory/<%= item.id %>/delete">
+                  <i
+                    class="delete__icon fas fa-trash"
+                    title="Delete record"
+                  ></i>
+                </a>
               </button>
             </td>
           </tr>
-          <% }) %>
+          <% } %>
         </table>
       </section>
     </main>
   </body>
-  <%- include("partial/footer") %>
+  <%- include("../partial/footer") %>
 </html>

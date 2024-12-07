@@ -13,7 +13,29 @@ body {
   margin: 5% 10%;
   font-size: small;
   color: #000000;
-  min-height: 100vh;
+  min-height: 96vh;
+}
+
+.details__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.details__container .item__image {
+  text-align: center;
+}
+.details__container .item__image i {
+  font-size: 15rem;
+}
+.details__container .details h2 {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+.details__container .details ul {
+  list-style-type: none;
+}
+.details__container .details ul li {
+  padding: 0.5rem;
 }
 
 header {
@@ -32,29 +54,41 @@ header .title button {
   background-color: transparent;
   border: none;
   cursor: pointer;
+  transition: scale 0.3s ease-in-out;
+  transform: scale(1.2);
 }
 header .title button:hover {
   scale: 1.05;
 }
 header .title button i {
   font-size: x-large;
+  color: #000000;
 }
 header h1 {
   font-size: large;
 }
-header .add__icon {
-  font-size: large;
+header a {
+  text-decoration: none;
+}
+header a .add__icon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: #388e3c;
   color: #66bb6a;
-  padding: 0.6rem 0.7rem;
+  padding: 0.5rem 0.6rem;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
-header .add__icon:hover {
+header a .add__icon i {
+  font-size: large;
+  text-decoration: none;
+}
+header a .add__icon:hover {
   background-color: #66bb6a;
   color: #388e3c;
-  transition: background-color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
 }
 
 main {
@@ -85,6 +119,7 @@ main .search input {
   border-bottom-left-radius: 5px;
   font-size: small;
   color: #000000;
+  font-family: "Inter", sans-serif;
 }
 main .search input:focus {
   outline: none;
@@ -102,10 +137,11 @@ main .search button {
   background-color: #0077b6;
   color: #ffffff;
   cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.2s ease-in-out;
 }
 main .search button:hover {
   background-color: #3399cc;
-  transition: background-color 0.3s ease-in-out;
 }
 main .table__container {
   width: 100%;
@@ -116,13 +152,15 @@ main .table__container table {
   white-space: nowrap;
   width: 100%;
 }
+main .table__container table tr {
+  transition: background-color 0.3s ease-in-out;
+}
 main .table__container table tr:first-child {
   background-color: #0077b6;
   color: #ffffff;
 }
 main .table__container table tr:nth-child(n+2):hover {
   background-color: #f2f2f2;
-  transition: background-color 0.3s ease-in-out;
 }
 main .table__container table tr:last-child td:first-child {
   border-bottom-left-radius: 5px;
@@ -156,6 +194,17 @@ main .table__container table tr td:last-child .action__button {
   background-color: transparent;
   border: none;
   padding: 0.05rem;
+}
+main .table__container table tr td:last-child .action__button .view__icon {
+  font-size: large;
+  padding: 0.4rem;
+  color: #66bb6a;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main .table__container table tr td:last-child .action__button .view__icon:hover {
+  color: #388e3c;
+  transition: color 0.3s ease-in-out;
 }
 main .table__container table tr td:last-child .action__button .edit__icon {
   font-size: large;
@@ -199,12 +248,32 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   font-size: small;
   box-shadow: inset 0 0 0 1px #bcbcbc;
   color: #000000;
+  font-family: "Inter", sans-serif;
 }
 .form .input-field input:focus {
   border: none;
   outline: none;
 }
 .form .input-field input:focus-within {
+  box-shadow: inset 0 0 0 2px #0077b6;
+}
+.form .input-field textarea {
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 5px;
+  font-size: small;
+  box-shadow: inset 0 0 0 1px #bcbcbc;
+  color: #000000;
+  font-family: "Inter", sans-serif;
+  font-size: small;
+  resize: vertical;
+}
+.form .input-field textarea:focus {
+  border: none;
+  outline: none;
+}
+.form .input-field textarea:focus-within {
   box-shadow: inset 0 0 0 2px #0077b6;
 }
 .form label {
@@ -227,10 +296,11 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   background-color: #0077b6;
   color: #ffffff;
   cursor: pointer;
+  font-family: "Inter", sans-serif;
+  transition: background-color 0.3s ease-in-out;
 }
 .form button:hover {
   background-color: #3399cc;
-  transition: background-color 0.3s ease-in-out;
 }
 
 .delete__container {
@@ -244,7 +314,7 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
   gap: 1rem;
   text-align: center;
   border: 1px solid #f2f2f2;
@@ -252,45 +322,59 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .delete__container .delete__modal i {
-  font-size: xx-large;
+  font-size: 4rem;
   color: #d32f2f;
 }
 .delete__container .delete__modal .selections {
   width: 100%;
   display: flex;
   flex-direction: row;
-  padding: 0.5rem;
+  padding-top: 0.5rem;
   gap: 3%;
+  font-weight: bold;
 }
-.delete__container .delete__modal .selections button {
-  width: 48.5%;
+.delete__container .delete__modal .selections a {
+  width: 50%;
+}
+.delete__container .delete__modal .selections a .cancel {
+  width: 100%;
+  height: 100%;
   padding: 0.6rem;
   border: none;
-  border-radius: 10px;
-  background-color: transparent;
-  color: transparent;
-  color: #ffffff;
-  font-weight: bold;
-  cursor: pointer;
-}
-.delete__container .delete__modal .selections button.cancel {
+  border-radius: 5px;
   background-color: #bcbcbc;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
-.delete__container .delete__modal .selections button.cancel:hover {
+.delete__container .delete__modal .selections a .cancel:hover {
   background-color: #808080;
 }
-.delete__container .delete__modal .selections button.delete {
-  background-color: #d32f2f;
+.delete__container .delete__modal .selections form {
+  width: 50%;
 }
-.delete__container .delete__modal .selections button.delete:hover {
+.delete__container .delete__modal .selections form .delete {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
   background-color: #f44336;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.delete__container .delete__modal .selections form .delete:hover {
+  background-color: #d32f2f;
 }
 
 footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin-top: auto;
 }
 footer .separator {
@@ -303,7 +387,7 @@ footer .logo {
   align-items: center;
 }
 footer .logo img {
-  width: 4rem;
+  width: 3rem;
   height: auto;
 }
 footer .logo img:hover {
@@ -320,6 +404,10 @@ footer p {
 @media only screen and (min-width: 768px) {
   header .title {
     gap: 0.5rem;
+  }
+  .details__container .details ul {
+    width: 50%;
+    margin: auto;
   }
   main .search {
     padding: 0.2rem 0.2rem;
@@ -384,6 +472,9 @@ footer p {
 @media only screen and (min-width: 1440px) {
   header .title {
     gap: 0.7rem;
+  }
+  .details__container .details ul {
+    width: 40%;
   }
   body {
     margin: 2% 10%;

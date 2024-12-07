@@ -4,36 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Page</title>
-    <link href="/styles/style.css" rel="stylesheet" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      rel="stylesheet"
-    />
+    <%- include("../partial/external-assets") %>
   </head>
   <body>
     <header>
       <div class="title">
         <button aria-label="Home">
-          <i class="fas fa-home" title="Home"></i>
+          <a href="/inventory">
+            <i class="fas fa-home" title="Home"></i>
+          </a>
         </button>
-        <h1>Edit Page</h1>
+        <h1>Add Page</h1>
       </div>
     </header>
     <hr />
 
-    <!-- Edit Form -->
-    <form class="form" action="">
+    <!-- Add Form -->
+    <form class="form" action="/inventory" method="POST">
       <div class="input-field">
         <label for="name">Name:</label>
         <input
           id="name"
           type="text"
+          name="name"
           placeholder="Enter name..."
           aria-label="Enter your name"
         />
@@ -43,6 +36,7 @@
         <input
           id="category"
           type="text"
+          name="category"
           placeholder="Enter category..."
           aria-label="Enter your category"
         />
@@ -53,6 +47,7 @@
           <input
             id="quantity"
             type="text"
+            name="quantity"
             placeholder="Enter quantity..."
             aria-label="Enter your quantity"
           />
@@ -62,6 +57,7 @@
           <input
             id="price"
             type="text"
+            name="price"
             placeholder="Enter price..."
             aria-label="Enter your price"
           />
@@ -69,15 +65,15 @@
       </div>
       <div class="input-field">
         <label for="description">Description:</label>
-        <input
+        <textarea
+          name="description"
           id="description"
-          type="text"
           placeholder="Enter description..."
           aria-label="Enter your description"
-        />
+        ></textarea>
       </div>
       <button aria-label="Submit">Submit</button>
     </form>
   </body>
-  <%- include("partial/footer") %>
+  <%- include("../partial/footer") %>
 </html>

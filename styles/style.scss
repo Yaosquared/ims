@@ -29,8 +29,36 @@ body {
   margin: 5% 10%;
   font-size: small;
   color: $black;
+  min-height: 96vh;
+}
 
-  min-height: 100vh;
+.details__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .item__image {
+    text-align: center;
+
+    i {
+      font-size: 15rem;
+    }
+  }
+
+  .details {
+    h2 {
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: none;
+
+      li {
+        padding: 0.5rem;
+      }
+    }
+  }
 }
 
 header {
@@ -49,6 +77,8 @@ header {
       background-color: transparent;
       border: none;
       cursor: pointer;
+      transition: scale 0.3s ease-in-out;
+      transform: scale(1.2);
 
       &:hover {
         scale: 1.05;
@@ -56,6 +86,7 @@ header {
 
       i {
         font-size: x-large;
+        color: $black;
       }
     }
   }
@@ -64,19 +95,30 @@ header {
     font-size: large;
   }
 
-  .add__icon {
-    font-size: large;
-    background-color: $green;
-    color: $lighterGreen;
-    padding: 0.6rem 0.7rem;
-    border-radius: 5px;
-    cursor: pointer;
+  a {
+    text-decoration: none;
 
-    &:hover {
-      background-color: $lighterGreen;
-      color: $green;
-      transition: background-color 0.3s ease-in-out;
-      transition: color 0.3s ease-in-out;
+    .add__icon {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: $green;
+      color: $lighterGreen;
+      padding: 0.5rem 0.6rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+
+      i {
+        font-size: large;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: $lighterGreen;
+        color: $green;
+      }
     }
   }
 }
@@ -110,6 +152,7 @@ main {
       border-bottom-left-radius: 5px;
       font-size: small;
       color: $black;
+      font-family: "Inter", sans-serif;
     }
 
     input:focus {
@@ -130,10 +173,11 @@ main {
       background-color: $blue;
       color: $white;
       cursor: pointer;
+      font-family: "Inter", sans-serif;
+      transition: background-color 0.2s ease-in-out;
 
       &:hover {
         background-color: $lighterBlue;
-        transition: background-color 0.3s ease-in-out;
       }
     }
   }
@@ -148,6 +192,8 @@ main {
       width: 100%;
 
       tr {
+        transition: background-color 0.3s ease-in-out;
+
         &:first-child {
           background-color: $blue;
           color: $white;
@@ -155,7 +201,6 @@ main {
 
         &:nth-child(n + 2):hover {
           background-color: $lighterGray;
-          transition: background-color 0.3s ease-in-out;
         }
 
         &:last-child {
@@ -197,6 +242,19 @@ main {
               background-color: transparent;
               border: none;
               padding: 0.05rem;
+
+              .view__icon {
+                font-size: large;
+                padding: 0.4rem;
+                color: $lighterGreen;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                  color: $green;
+                  transition: color 0.3s ease-in-out;
+                }
+              }
 
               .edit__icon {
                 font-size: large;
@@ -250,6 +308,29 @@ main {
       font-size: small;
       box-shadow: inset 0 0 0 1px $gray;
       color: $black;
+      font-family: "Inter", sans-serif;
+
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
+      &:focus-within {
+        box-shadow: inset 0 0 0 2px $blue;
+      }
+    }
+
+    textarea {
+      padding: 0.5rem;
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      font-size: small;
+      box-shadow: inset 0 0 0 1px $gray;
+      color: $black;
+      font-family: "Inter", sans-serif;
+      font-size: small;
+      resize: vertical;
 
       &:focus {
         border: none;
@@ -285,11 +366,12 @@ main {
     background-color: $blue;
     color: $white;
     cursor: pointer;
+    font-family: "Inter", sans-serif;
+    transition: background-color 0.3s ease-in-out;
   }
 
   button:hover {
     background-color: $lighterBlue;
-    transition: background-color 0.3s ease-in-out;
   }
 }
 
@@ -304,7 +386,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 4rem 2rem;
     gap: 1rem;
     text-align: center;
     border: 1px solid $lighterGray;
@@ -312,7 +394,7 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 
     i {
-      font-size: xx-large;
+      font-size: 4rem;
       color: $red;
     }
 
@@ -320,33 +402,48 @@ main {
       width: 100%;
       display: flex;
       flex-direction: row;
-      padding: 0.5rem;
+      padding-top: 0.5rem;
       gap: 3%;
+      font-weight: bold;
 
-      button {
-        width: 48.5%;
-        padding: 0.6rem;
-        border: none;
-        border-radius: 10px;
-        background-color: transparent;
-        color: transparent;
-        color: $white;
-        font-weight: bold;
-        cursor: pointer;
+      a {
+        width: 50%;
 
-        &.cancel {
+        .cancel {
+          width: 100%;
+          height: 100%;
+          padding: 0.6rem;
+          border: none;
+          border-radius: 5px;
           background-color: $gray;
+          color: $white;
+          font-family: "Inter", sans-serif;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
 
           &:hover {
             background-color: $darkerGray;
           }
         }
+      }
 
-        &.delete {
-          background-color: $red;
+      form {
+        width: 50%;
+
+        .delete {
+          width: 100%;
+          height: 100%;
+          padding: 0.5rem;
+          border: none;
+          border-radius: 5px;
+          background-color: $lighterRed;
+          color: $white;
+          font-family: "Inter", sans-serif;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
 
           &:hover {
-            background-color: $lighterRed;
+            background-color: $red;
           }
         }
       }
@@ -358,7 +455,7 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   margin-top: auto;
 
   .separator {
@@ -372,7 +469,7 @@ footer {
     align-items: center;
 
     img {
-      width: 4rem;
+      width: 3rem;
       height: auto;
 
       &:hover {
@@ -396,6 +493,15 @@ footer {
   header {
     .title {
       gap: 0.5rem;
+    }
+  }
+
+  .details__container {
+    .details {
+      ul {
+        width: 50%;
+        margin: auto;
+      }
     }
   }
 
@@ -511,6 +617,14 @@ footer {
   header {
     .title {
       gap: 0.7rem;
+    }
+  }
+
+  .details__container {
+    .details {
+      ul {
+        width: 40%;
+      }
     }
   }
 
