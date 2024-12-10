@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delete Confirmation Page</title>
-    <%- include("../partial/external-assets") %>
+    <%- include("./partial/external-assets") %>
   </head>
   <body class="delete__container">
     <div class="delete__modal">
@@ -12,16 +12,13 @@
       <h2>Delete Record?</h2>
       <p>
         Are you sure you want to delete
-        <strong><%= itemToDelete.name %></strong>?
+        <strong><%= item.name %></strong>?
       </p>
       <div class="selections">
-        <a href="/inventory">
+        <a href="/items">
           <button class="cancel" aria-label="Cancel">Cancel</button>
         </a>
-        <form
-          action="/inventory/<%= itemToDelete.id %>?_method=DELETE"
-          method="POST"
-        >
+        <form action="/items/<%= item.id %>?_method=DELETE" method="POST">
           <button type="submit" class="delete" aria-label="Delete">
             Confirm
           </button>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Details Page</title>
+    <link rel="stylesheet" />
+    <%- include("./partial/external-assets") %>
+  </head>
+  <body>
+    <header>
+      <div class="title">
+        <a href="/items">
+          <button aria-label="Home">
+            <i class="fas fa-home" title="Home"></i>
+          </button>
+        </a>
+        <h1>Details Page</h1>
+      </div>
+    </header>
+    <hr />
+
+    <section class="details__container">
+      <div class="item__image">
+        <i class="fas fa-image"></i>
+      </div>
+      <div class="details">
+        <h2><%= item.name %></h2>
+        <ul>
+          <li><strong>ID: </strong><%= item._id %></li>
+          <li><strong>Category: </strong><%= item.category %></li>
+          <li><strong>Quantity: </strong><%= item.quantity %></li>
+          <li><strong>Price: </strong><%= item.price %></li>
+          <li><strong>Description: </strong><%= item.description %></li>
+          <% const date = new Date(item.createdAt); %> <% const formattedDate =
+          `${date.toLocaleString('en-US', { month: 'long' })} ${date.getDate()},
+          ${date.getFullYear()}` %>
+          <li><strong>Created At: </strong><%= formattedDate %></li>
+        </ul>
+      </div>
+    </section>
+    <%- include("./partial/footer") %>
+  </body>
+</html>

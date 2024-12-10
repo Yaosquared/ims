@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <%- include("./partial/external-assets") %>
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.9.4/build/player/lottie.min.js"></script>
+  </head>
+  <body>
+    <div class="landing__container">
+      <div class="first__container">
+        <section class="animation__section">
+          <div
+            id="animation__container"
+            aria-label="Under development animation"
+          ></div>
+        </section>
+      </div>
+
+      <div class="second__container">
+        <section class="upper__container">
+          <div class="title">
+            <h2>For future improvements</h2>
+            <p>(Not implemented yet)</p>
+          </div>
+          <ul>
+            <li>Search functionality</li>
+            <li>Filter functionality</li>
+            <li>Pagination</li>
+            <li>Image Upload and Display</li>
+          </ul>
+        </section>
+
+        <section class="lower__container">
+          <p>Continue to</p>
+          <a href="/items">
+            <button aria-label="Go to Inventory Management System">
+              Inventory Management System
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </a>
+        </section>
+      </div>
+    </div>
+
+    <script>
+      var animation = lottie.loadAnimation({
+        container: document.getElementById("animation__container"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "assets/developing.json",
+      });
+    </script>
+  </body>
+</html>

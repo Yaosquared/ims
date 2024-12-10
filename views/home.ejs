@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <%- include("../partial/external-assets") %>
+    <%- include("./partial/external-assets") %>
   </head>
   <body class="content">
     <header>
@@ -14,7 +14,7 @@
         </button>
         <h1>Home Page</h1>
       </div>
-      <a href="/inventory/new">
+      <a href="/items/new">
         <button class="add__icon">
           <i class="fas fa-plus" title="Add record"></i>
         </button>
@@ -40,7 +40,7 @@
       <section class="table__container">
         <table aria-labelledby="table-title">
           <caption id="table-title" class="sr-only">
-            Product Information
+            Item Information
           </caption>
           <tr>
             <th>Name</th>
@@ -48,29 +48,34 @@
             <th>Quantity</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Created At</th>
             <th>Actions</th>
           </tr>
           <!-- Loop through placeholderData and display each item -->
-          <% for(let item of placeholderData) { %>
+          <% for(let item of items) { %>
           <tr>
             <td><%= item.name %></td>
             <td><%= item.category %></td>
             <td><%= item.quantity %></td>
             <td><%= item.price %></td>
             <td><%= item.description %></td>
+            <% const date = new Date(item.createdAt); %> <% const formattedDate
+            = `${date.toLocaleString('en-US', { month: 'long' })}
+            ${date.getDate()}, ${date.getFullYear()}` %>
+            <td><%= formattedDate %></td>
             <td>
               <button class="action__button" aria-label="View details">
-                <a href="/inventory/<%= item.id %>">
+                <a href="/items/<%= item._id %>">
                   <i class="view__icon fas fa-eye" title="View details"></i>
                 </a>
               </button>
               <button class="action__button" aria-label="Edit record">
-                <a href="/inventory/<%= item.id %>/edit">
+                <a href="/items/<%= item.id %>/edit">
                   <i class="edit__icon fas fa-edit" title="Edit record"></i>
                 </a>
               </button>
               <button class="action__button" aria-label="Delete record">
-                <a href="/inventory/<%= item.id %>/delete">
+                <a href="/items/<%= item.id %>/delete">
                   <i
                     class="delete__icon fas fa-trash"
                     title="Delete record"
@@ -84,5 +89,5 @@
       </section>
     </main>
   </body>
-  <%- include("../partial/footer") %>
+  <%- include("./partial/footer") %>
 </html>
