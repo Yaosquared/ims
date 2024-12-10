@@ -266,7 +266,6 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   box-shadow: inset 0 0 0 1px #bcbcbc;
   color: #000000;
   font-family: "Inter", sans-serif;
-  font-size: small;
   resize: vertical;
 }
 .form .input-field textarea:focus {
@@ -473,9 +472,6 @@ footer p {
   header .title {
     gap: 0.7rem;
   }
-  .details__container .details ul {
-    width: 40%;
-  }
   body {
     margin: 2% 10%;
   }
@@ -489,6 +485,9 @@ footer p {
     padding: 0.7rem;
     font-size: medium;
   }
+  .form .input-field textarea {
+    font-size: medium;
+  }
   .form .dual {
     gap: 3%;
   }
@@ -498,8 +497,5 @@ footer p {
   .form button {
     padding: 0.7rem;
     font-size: medium;
-  }
-  .delete__container .delete__modal {
-    padding: 5rem;
   }
 }/*# sourceMappingURL=style.css.map */

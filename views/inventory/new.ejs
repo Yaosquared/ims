@@ -29,6 +29,7 @@
           name="name"
           placeholder="Enter name..."
           aria-label="Enter your name"
+          required
         />
       </div>
       <div class="input-field">
@@ -39,6 +40,7 @@
           name="category"
           placeholder="Enter category..."
           aria-label="Enter your category"
+          required
         />
       </div>
       <div class="dual">
@@ -46,20 +48,22 @@
           <label for="quantity">Quantity</label>
           <input
             id="quantity"
-            type="text"
+            type="number"
             name="quantity"
             placeholder="Enter quantity..."
             aria-label="Enter your quantity"
+            required
           />
         </div>
         <div class="input-field">
           <label for="price">Price:</label>
           <input
             id="price"
-            type="text"
+            type="number"
             name="price"
             placeholder="Enter price..."
             aria-label="Enter your price"
+            required
           />
         </div>
       </div>
@@ -70,6 +74,7 @@
           id="description"
           placeholder="Enter description..."
           aria-label="Enter your description"
+          required
         ></textarea>
       </div>
       <button aria-label="Submit">Submit</button>
