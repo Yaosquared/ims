@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
 const Item = require("../../models/item");
-const dotenv = require("dotenv");
-dotenv.config();
 
 // Database connection
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect("mongodb://127.0.0.1:27017/item-db")
   .then(() => {
     console.log("Connection Success");
   })
@@ -51,7 +49,7 @@ exports.updateItem = async (req, res) => {
   res.redirect(`/items/${id}`);
 };
 
-// Display delete confirmation modal/page
+// Display delete confirmation modal/
 exports.deleteItemModal = async (req, res) => {
   const item = await Item.findById(req.params.id);
   res.render("delete", { item });

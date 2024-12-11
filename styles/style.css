@@ -437,7 +437,7 @@ footer p {
   align-items: center;
 }
 .landing__container .second__container .upper__container .toDos .task input {
-  margin-right: 0.2rem;
+  margin-right: 0.4rem;
 }
 .landing__container .second__container .lower__container {
   display: flex;
