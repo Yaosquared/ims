@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
 const Item = require("../../models/item");
-const dotenv = require("dotenv");
-dotenv.config();
 
 // Database connection
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect("mongodb://127.0.0.1:27017/item-db")
   .then(() => {
     console.log("Connection Success");
   })
