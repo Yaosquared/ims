@@ -49,7 +49,7 @@ exports.updateItem = async (req, res) => {
   res.redirect(`/items/${id}`);
 };
 
-// Delete confirmation modal
+// Display delete confirmation modal/page
 exports.deleteItemModal = async (req, res) => {
   const item = await Item.findById(req.params.id);
   res.render("delete", { item });
