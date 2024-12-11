@@ -7,42 +7,77 @@
     <%- include("./partial/external-assets") %>
     <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.9.4/build/player/lottie.min.js"></script>
   </head>
-  <body>
-    <div class="landing__container">
-      <div class="first__container">
-        <section class="animation__section">
-          <div
-            id="animation__container"
-            aria-label="Under development animation"
-          ></div>
-        </section>
+  <body class="landing__container">
+    <section class="first__container">
+      <div class="animation__section">
+        <div
+          id="animation__container"
+          aria-label="Under development animation"
+        ></div>
       </div>
+    </section>
 
-      <div class="second__container">
-        <section class="upper__container">
-          <div class="title">
-            <h2>For future improvements</h2>
-            <p>(Not implemented yet)</p>
+    <section class="second__container">
+      <div class="upper__container">
+        <div class="title">
+          <h2>For future improvements</h2>
+          <p>(Not implemented yet)</p>
+        </div>
+
+        <div class="toDos">
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo1"
+              name="toDo1"
+              value="toDo1"
+              checked
+              disabled
+            />
+            <label for="toDo1"> Search functionality</label>
           </div>
-          <ul>
-            <li>Search functionality</li>
-            <li>Filter functionality</li>
-            <li>Pagination</li>
-            <li>Image Upload and Display</li>
-          </ul>
-        </section>
-
-        <section class="lower__container">
-          <p>Continue to</p>
-          <a href="/items">
-            <button aria-label="Go to Inventory Management System">
-              Inventory Management System
-              <i class="fas fa-arrow-right"></i>
-            </button>
-          </a>
-        </section>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo2"
+              name="toDo2"
+              value="toDo2"
+              disabled
+            />
+            <label for="toDo2"> Filter functionality</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo3"
+              name="toDo3"
+              value="toDo3"
+              disabled
+            />
+            <label for="toDo3"> Pagination</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo4"
+              name="toDo4"
+              value="toDo4"
+              disabled
+            />
+            <label for="toDo1"> Item Upload and Display</label>
+          </div>
+        </div>
       </div>
-    </div>
+
+      <div class="lower__container">
+        <p>Continue to</p>
+        <a href="/items">
+          <button aria-label="Go to Inventory Management System">
+            Inventory Management System
+          </button>
+        </a>
+      </div>
+    </section>
 
     <script>
       var animation = lottie.loadAnimation({
