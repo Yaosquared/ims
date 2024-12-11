@@ -597,6 +597,10 @@ footer p {
     padding: 0.7rem;
     font-size: medium;
   }
+  .landing__container {
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
   .landing__container .first__container {
     width: 60%;
     align-items: center;
