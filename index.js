@@ -1,9 +1,13 @@
-const express = require("express");
-const path = require("path");
-const methodOverride = require("method-override");
-const itemRoutes = require("./server/routes/itemRoutes");
+import express from "express";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+import methodOverride from "method-override";
+import itemRoutes from "./server/routes/itemRoutes.js";
 
 const app = express();
+const PORT = process.env.PORT;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Get static files from local directories
 app.use("/styles", express.static("styles"));
@@ -28,6 +32,6 @@ app.use("/items", (req, res) => {
   res.render("new");
 });
 
-app.listen(3000, () => {
-  console.log("App listening on port 3000...");
+app.listen(PORT, () => {
+  console.log(`Server has started on port: ${PORT}`);
 });

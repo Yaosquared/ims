@@ -9,9 +9,6 @@
   <body class="content">
     <header>
       <div class="title">
-        <button aria-label="Home">
-          <i class="fas fa-home" title="Home"></i>
-        </button>
         <h1>Home Page</h1>
       </div>
       <a href="/items/new">
@@ -24,17 +21,19 @@
 
     <main>
       <!-- Search bar -->
-      <section class="search">
+      <form class="search" method="GET">
         <i class="add_icon fas fa-search"></i>
         <label for="search-input" class="sr-only">Search for a record:</label>
         <input
           id="search-input"
           type="text"
+          name="key"
+          value="<%= searchData %>"
           placeholder="Type in here..."
           aria-label="Search for a record"
         />
-        <button aria-label="Search">Search</button>
-      </section>
+        <button type="submit" aria-label="Search">Search</button>
+      </form>
 
       <!-- Home page Table -->
       <section class="table__container">
@@ -86,6 +85,16 @@
           </tr>
           <% } %>
         </table>
+      </section>
+
+      <section class="pagination">
+        <ul>
+          <% for(let i = 1; i <= totalPages; i++) { %>
+          <a href="?key=<%= searchData %>&page=<%= i %>">
+            <li class="<%= currentPage === i ? 'active' : '' %>"><%= i %></li>
+          </a>
+          <% } %>
+        </ul>
       </section>
     </main>
   </body>

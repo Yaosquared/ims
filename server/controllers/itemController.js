@@ -1,7 +1,5 @@
-const mongoose = require("mongoose");
-const Item = require("../../models/item");
-const dotenv = require("dotenv");
-dotenv.config();
+import mongoose from "mongoose";
+import Item from "../../models/item.js";
 
 // Database connection
 mongoose
@@ -15,51 +13,90 @@ mongoose
   });
 
 // Display all items
-exports.items = async (req, res) => {
-  const items = await Item.find();
-  res.render("home", { items });
+// const items = async (req, res) => {
+//   const searchData = req.query.key || "";
+//   const items = await Item.find({
+//     $or: [{ name: { $regex: searchData, $options: "i" } }],
+//   });
+//   res.render("home", { items, searchData });
+// };
+
+//==
+const items = async (req, res) => {
+  const searchData = req.query.key || "";
+  const page = req.query.page * 1 || 1;
+  const limit = req.query.limit * 1 || 10;
+  const skip = (page - 1) * limit;
+  const query = Item.find({
+    $or: [{ name: { $regex: searchData, $options: "i" } }],
+  })
+    .skip(skip)
+    .limit(limit);
+  const items = await query;
+  res.render("home", {
+    items,
+    searchData,
+    currentPage: page,
+    totalPages: Math.ceil(
+      (await Item.countDocuments({
+        $or: [{ name: { $regex: searchData, $options: "i" } }],
+      })) / limit
+    ),
+  });
 };
+//==
 
 // Add item form
-exports.addItemForm = (req, res) => {
+const addItemForm = (req, res) => {
   res.render("new");
 };
 
 // Create item record
-exports.addItem = async (req, res) => {
+const addItem = async (req, res) => {
   const item = new Item(req.body);
   await item.save();
   res.redirect("/items");
 };
 
 // View item details
-exports.viewItem = async (req, res) => {
+const viewItem = async (req, res) => {
   const item = await Item.findById(req.params.id);
   res.render("details", { item });
 };
 
 // Update user form
-exports.editItemForm = async (req, res) => {
+const editItemForm = async (req, res) => {
   const item = await Item.findById(req.params.id);
   res.render("edit", { item });
 };
 
 // Update item
-exports.updateItem = async (req, res) => {
+const updateItem = async (req, res) => {
   const { id } = req.params;
   const item = await Item.findByIdAndUpdate(id, { ...req.body });
   res.redirect(`/items/${id}`);
 };
 
 // Display delete confirmation modal/
-exports.deleteItemModal = async (req, res) => {
+const deleteItemModal = async (req, res) => {
   const item = await Item.findById(req.params.id);
   res.render("delete", { item });
 };
 
 // Delete item
-exports.deleteItem = async (req, res) => {
+const deleteItem = async (req, res) => {
   const { id } = req.params;
   await Item.findByIdAndDelete(id);
   res.redirect("/items");
+};
+
+export default {
+  items,
+  addItemForm,
+  addItem,
+  viewItem,
+  editItemForm,
+  updateItem,
+  deleteItemModal,
+  deleteItem,
 };

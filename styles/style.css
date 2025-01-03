@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   justify-content: center;
   row-gap: 1rem;
-  margin: 5% 10%;
+  margin: 2rem 2rem 0 2rem;
   font-size: small;
   color: #0c0c0c;
   min-height: 96vh;
@@ -26,6 +26,7 @@ body {
 }
 .details__container .item__image i {
   font-size: 15rem;
+  cursor: pointer;
 }
 .details__container .details h2 {
   text-align: center;
@@ -78,12 +79,11 @@ header a .add__icon {
   transition: background-color 0.2s ease-in-out;
 }
 header a .add__icon i {
-  font-size: large;
+  font-size: 1.5rem;
   text-decoration: none;
 }
 header a .add__icon:hover {
-  background-color: #66bb6a;
-  color: #388e3c;
+  background-color: #36833a;
 }
 
 main {
@@ -129,14 +129,14 @@ main .search button {
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  background-color: #0077b6;
+  background-color: #1b87bd;
   color: #ffffff;
   cursor: pointer;
   font-family: "Inter", sans-serif;
   transition: background-color 0.2s ease-in-out;
 }
 main .search button:hover {
-  background-color: #3399cc;
+  background-color: #0077b6;
 }
 main .table__container {
   width: 100%;
@@ -151,7 +151,7 @@ main .table__container table tr {
   transition: background-color 0.3s ease-in-out;
 }
 main .table__container table tr:first-child {
-  background-color: #0077b6;
+  background-color: #1b87bd;
   color: #ffffff;
 }
 main .table__container table tr:nth-child(n+2):hover {
@@ -177,7 +177,7 @@ main .table__container table tr th:last-child {
 }
 main .table__container table tr td {
   text-align: center;
-  padding: 0.5rem;
+  padding: 0.3rem;
 }
 main .table__container table tr td:last-child {
   display: flex;
@@ -204,7 +204,7 @@ main .table__container table tr td:last-child .action__button .view__icon:hover 
 main .table__container table tr td:last-child .action__button .edit__icon {
   font-size: large;
   padding: 0.4rem;
-  color: #3399cc;
+  color: #1b87bd;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -287,14 +287,14 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   font-size: small;
   border: none;
   border-radius: 5px;
-  background-color: #0077b6;
+  background-color: #1b87bd;
   color: #ffffff;
   cursor: pointer;
   font-family: "Inter", sans-serif;
   transition: background-color 0.3s ease-in-out;
 }
 .form button:hover {
-  background-color: #3399cc;
+  background-color: #0077b6;
 }
 
 .delete__container {
@@ -343,7 +343,7 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
   transition: background-color 0.3s ease-in-out;
 }
 .delete__container .delete__modal .selections a .cancel:hover {
-  background-color: #808080;
+  background-color: #a5a4a4;
 }
 .delete__container .delete__modal .selections form {
   width: 50%;
@@ -362,6 +362,30 @@ main .table__container table tr td:last-child .action__button .delete__icon:hove
 }
 .delete__container .delete__modal .selections form .delete:hover {
   background-color: #d32f2f;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.pagination ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+.pagination ul a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #0c0c0c;
+}
+.pagination ul a:hover {
+  background-color: #f2f2f2;
+}
+.pagination ul a li {
+  padding: 1rem;
+  border-right: 1px solid #a5a4a4;
 }
 
 footer {
@@ -383,6 +407,7 @@ footer .logo {
 footer .logo img {
   width: 3rem;
   height: auto;
+  padding-top: 0.5rem;
 }
 footer .logo img:hover {
   scale: 1.02;
@@ -458,21 +483,27 @@ footer p {
   font-size: medium;
   padding: 1rem;
   gap: 0.5rem;
-  background-color: #0077b6;
+  background-color: #1b87bd;
   color: #ffffff;
   border: none;
   border-radius: 10px;
-  box-shadow: inset 0 0 0 1px #3399cc;
+  box-shadow: inset 0 0 0 1px #1b87bd;
   transition: background-color 0.2s ease-in-out;
   cursor: pointer;
 }
 .landing__container .second__container .lower__container a button:hover {
-  background-color: #3399cc;
+  background-color: #0077b6;
 }
 
 @media only screen and (min-width: 768px) {
+  body {
+    margin: 2rem 5rem 0 5rem;
+  }
   header .title {
     gap: 0.5rem;
+  }
+  .details__container .item__image i {
+    font-size: 20rem;
   }
   .details__container .details ul {
     width: 50%;
@@ -502,6 +533,9 @@ footer p {
   }
 }
 @media only screen and (min-width: 1024px) {
+  body {
+    margin: 2rem 8rem 0 8rem;
+  }
   header h1 {
     font-size: x-large;
   }
@@ -509,7 +543,6 @@ footer p {
     gap: 0.6rem;
   }
   body {
-    margin: 3% 10%;
     font-size: medium;
   }
   main .search {
@@ -568,11 +601,14 @@ footer p {
   }
 }
 @media only screen and (min-width: 1440px) {
+  body {
+    margin: 2rem 10rem 0 10rem;
+  }
   header .title {
     gap: 0.7rem;
   }
-  body {
-    margin: 2% 10%;
+  .details__container .item__image i {
+    font-size: 23rem;
   }
   main .search {
     padding: 0.2rem 0.21rem;

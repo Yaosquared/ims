@@ -1,8 +1,11 @@
-const express = require("express");
+import express from "express";
+import itemController from "../controllers/itemController.js";
+
 const router = express.Router();
-const itemController = require("../controllers/itemController");
 
 router.get("/", itemController.items);
+
+router.get("/search", itemController.items);
 
 router.get("/new", itemController.addItemForm);
 router.post("/create-item", itemController.addItem);
@@ -15,4 +18,4 @@ router.put("/:id", itemController.updateItem);
 router.get("/:id/delete", itemController.deleteItemModal);
 router.delete("/:id", itemController.deleteItem);
 
-module.exports = router;
+export default router;

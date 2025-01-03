@@ -6,17 +6,17 @@
 
 $darkerBlue: #005f8b;
 $blue: #0077b6;
-$lighterBlue: #3399cc;
+$lighterBlue: #1b87bd;
 $darkerRed: #9b1c31;
 $red: #d32f2f;
 $lighterRed: #f44336;
-$darkerGreen: #2d6a4f;
+$darkerGreen: #36833a;
 $green: #388e3c;
 $lighterGreen: #66bb6a;
 $black: #0c0c0c;
 $lighterBlack: #060606;
 $white: #ffffff;
-$darkerGray: #808080;
+$darkerGray: #a5a4a4;
 $gray: #bcbcbc;
 $lighterGray: #f2f2f2;
 
@@ -26,7 +26,7 @@ body {
   flex-direction: column;
   justify-content: center;
   row-gap: 1rem;
-  margin: 5% 10%;
+  margin: 2rem 2rem 0 2rem;
   font-size: small;
   color: $black;
   min-height: 96vh;
@@ -42,6 +42,7 @@ body {
 
     i {
       font-size: 15rem;
+      cursor: pointer;
     }
   }
 
@@ -105,13 +106,12 @@ header {
       transition: background-color 0.2s ease-in-out;
 
       i {
-        font-size: large;
+        font-size: 1.5rem;
         text-decoration: none;
       }
 
       &:hover {
-        background-color: $lighterGreen;
-        color: $green;
+        background-color: $darkerGreen;
       }
     }
   }
@@ -164,14 +164,14 @@ main {
       border: none;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
-      background-color: $blue;
+      background-color: $lighterBlue;
       color: $white;
       cursor: pointer;
       font-family: "Inter", sans-serif;
       transition: background-color 0.2s ease-in-out;
 
       &:hover {
-        background-color: $lighterBlue;
+        background-color: $blue;
       }
     }
   }
@@ -189,7 +189,7 @@ main {
         transition: background-color 0.3s ease-in-out;
 
         &:first-child {
-          background-color: $blue;
+          background-color: $lighterBlue;
           color: $white;
         }
 
@@ -224,7 +224,7 @@ main {
 
         td {
           text-align: center;
-          padding: 0.5rem;
+          padding: 0.3rem;
 
           &:last-child {
             display: flex;
@@ -356,7 +356,7 @@ main {
     font-size: small;
     border: none;
     border-radius: 5px;
-    background-color: $blue;
+    background-color: $lighterBlue;
     color: $white;
     cursor: pointer;
     font-family: "Inter", sans-serif;
@@ -364,7 +364,7 @@ main {
   }
 
   button:hover {
-    background-color: $lighterBlue;
+    background-color: $blue;
   }
 }
 
@@ -444,6 +444,34 @@ main {
   }
 }
 
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 1rem;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+
+    a {
+      text-decoration: none;
+      font-weight: bolder;
+      color: $black;
+
+      &:hover {
+        background-color: $lighterGray;
+      }
+
+      li {
+        padding: 1rem;
+        border-right: 1px solid $darkerGray;
+      }
+    }
+  }
+}
+
 footer {
   display: flex;
   flex-direction: column;
@@ -464,6 +492,7 @@ footer {
     img {
       width: 3rem;
       height: auto;
+      padding-top: 0.5rem;
 
       &:hover {
         scale: 1.02;
@@ -551,7 +580,7 @@ footer {
           font-size: medium;
           padding: 1rem;
           gap: 0.5rem;
-          background-color: $blue;
+          background-color: $lighterBlue;
           color: $white;
           border: none;
           border-radius: 10px;
@@ -560,7 +589,7 @@ footer {
           cursor: pointer;
 
           &:hover {
-            background-color: $lighterBlue;
+            background-color: $blue;
           }
         }
       }
@@ -570,6 +599,10 @@ footer {
 
 // For tablets
 @media only screen and (min-width: 768px) {
+  body {
+    margin: 2rem 5rem 0 5rem;
+  }
+
   header {
     .title {
       gap: 0.5rem;
@@ -577,6 +610,12 @@ footer {
   }
 
   .details__container {
+    .item__image {
+      i {
+        font-size: 20rem;
+      }
+    }
+
     .details {
       ul {
         width: 50%;
@@ -623,6 +662,10 @@ footer {
 
 // For laptops
 @media only screen and (min-width: 1024px) {
+  body {
+    margin: 2rem 8rem 0 8rem;
+  }
+
   header {
     h1 {
       font-size: x-large;
@@ -634,7 +677,6 @@ footer {
   }
 
   body {
-    margin: 3% 10%;
     font-size: medium;
   }
 
@@ -737,14 +779,22 @@ footer {
 
 // For desktops
 @media only screen and (min-width: 1440px) {
+  body {
+    margin: 2rem 10rem 0 10rem;
+  }
+
   header {
     .title {
       gap: 0.7rem;
     }
   }
 
-  body {
-    margin: 2% 10%;
+  .details__container {
+    .item__image {
+      i {
+        font-size: 23rem;
+      }
+    }
   }
 
   main {

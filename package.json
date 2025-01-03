@@ -1,21 +1,21 @@
 {
   "name": "ims",
-  "version": "1.0.0",
-  "description": "Inventory Management System",
+  "version": "1.1.0",
+  "description": "A full stack inventory management system built with MongoDB/Mongoose, Express.js, EJS, and Node.js.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "dev": "node --watch --env-file=.env index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "method-override": "^3.0.0",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.4",
-    "sass": "^1.81.0",
-    "uuid": "^11.0.3"
+    "sass": "^1.81.0"
   }
 }
