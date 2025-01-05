@@ -2,7 +2,7 @@ import express from "express";
 import path, { dirname } from "path";
 import { fileURLToPath } from "url";
 import methodOverride from "method-override";
-import itemRoutes from "./server/routes/itemRoutes.js";
+import itemRoutes from "./routes/itemRoutes.js";
 
 const app = express();
 const PORT = process.env.PORT;
@@ -10,8 +10,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Get static files from local directories
-app.use("/styles", express.static("styles"));
-app.use("/assets", express.static("assets"));
+app.use("/styles", express.static("src/styles"));
+app.use("/assets", express.static("public"));
 
 // Parse any data from form
 app.use(express.urlencoded({ extended: true }));

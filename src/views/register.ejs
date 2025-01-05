@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+    <%- include("./partial/external-assets") %>
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.9.4/build/player/lottie.min.js"></script>
+  </head>
+  <body class="landing__container">
+    <section class="first__container">
+      <div class="animation__section">
+        <div
+          id="animationContainer"
+          aria-label="Under development animation"
+        ></div>
+      </div>
+    </section>
+
+    <section class="second__container">
+      <div class="title">
+        <h2>Inventory Management System</h2>
+      </div>
+
+      <form id="authForm" action="/sign-up" method="POST">
+        <div class="input__fields">
+          <label for="">Name</label>
+          <input type="text" placeholder="Enter your username" />
+          <label for="">Password</label>
+          <input type="text" placeholder="Enter your password" />
+        </div>
+        <button class="signin" type="submit">Sign Up</button>
+      </form>
+    </section>
+
+    <script>
+      var animation = lottie.loadAnimation({
+        container: document.getElementById("animationContainer"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "assets/inventory.json",
+      });
+    </script>
+  </body>
+</html>

@@ -13,20 +13,6 @@ mongoose
   });
 
 const seedDb = async () => {
-  //   const items = new Item({
-  //     name: "Sample Item 1",
-  //     category: "Electronics",
-  //     quantity: 10,
-  //     price: 150,
-  //     description: "A sample electronic item 1",
-  //   });
-  //   const items = new Item({
-  //     name: "Sample Item 2",
-  //     category: "Electronics",
-  //     quantity: 15,
-  //     price: 150.13,
-  //     description: "A sample electronic item 2",
-  //   });
   const items = new Item({
     name: "Sample Item 3",
     category: "Electronics",
