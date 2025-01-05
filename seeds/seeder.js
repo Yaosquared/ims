@@ -3,7 +3,7 @@ const Item = require("../models/item");
 
 // Database connection
 mongoose
-  .connect("mongodb://127.0.0.1:27017/item-db")
+  .connect(process.env.MONGODB_LOCAL)
   .then(() => {
     console.log("Connection Success");
   })

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In Page</title>
+    <%- include("./partial/external-assets") %>
+    <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.9.4/build/player/lottie.min.js"></script>
+  </head>
+  <body class="landing__container">
+    <section class="first__container">
+      <div class="animation__section">
+        <div
+          id="animationContainer"
+          aria-label="Under development animation"
+        ></div>
+      </div>
+    </section>
+
+    <section class="second__container">
+      <!-- <div class="upper__container">
+        <div class="title">
+          <h2>For future improvements:</h2>
+        </div>
+
+        <div class="toDos">
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo1"
+              name="toDo1"
+              value="toDo1"
+              checked
+              disabled
+            />
+            <label for="toDo1"> Mobile Responsive</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo2"
+              name="toDo2"
+              value="toDo2"
+              checked
+              disabled
+            />
+            <label for="toDo2"> Deployment</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo3"
+              name="toDo3"
+              value="toDo3"
+              checked
+              disabled
+            />
+            <label for="toDo3"> Search Functionality</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo4"
+              name="toDo4"
+              value="toDo4"
+              checked
+              disabled
+            />
+            <label for="toDo4"> Pagination Control</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo5"
+              name="toDo5"
+              value="toDo5"
+              disabled
+            />
+            <label for="toDo5"> Authentication</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo6"
+              name="toDo6"
+              value="toDo6"
+              disabled
+            />
+            <label for="toDo6"> Item Upload and Display</label>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="title">
+        <h2>Inventory Management System</h2>
+      </div>
+
+      <form id="authForm" action="/items">
+        <div class="input__fields">
+          <label for="">Username</label>
+          <input type="text" placeholder="Enter your username" />
+          <label for="">Password</label>
+          <input type="text" placeholder="Enter your password" />
+        </div>
+        <button class="signin" type="submit">Sign In</button>
+      </form>
+      <a href="/register">
+        <button class="signup">Sign Up</button>
+      </a>
+    </section>
+
+    <script>
+      var animation = lottie.loadAnimation({
+        container: document.getElementById("animationContainer"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "assets/inventory.json",
+      });
+    </script>
+  </body>
+</html>

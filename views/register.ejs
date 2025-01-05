@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Landing Page</title>
+    <title>Sign Up Page</title>
     <%- include("./partial/external-assets") %>
     <script src="https://cdn.jsdelivr.net/npm/lottie-web@5.9.4/build/player/lottie.min.js"></script>
   </head>
@@ -11,14 +11,13 @@
     <section class="first__container">
       <div class="animation__section">
         <div
-          id="animation__container"
+          id="animationContainer"
           aria-label="Under development animation"
         ></div>
       </div>
     </section>
 
     <section class="second__container">
-      <div class="upper__container">
         <div class="title">
           <h2>For future improvements:</h2>
         </div>
@@ -76,28 +75,43 @@
               value="toDo5"
               disabled
             />
-            <label for="toDo5"> Item Upload and Display</label>
+            <label for="toDo5"> Authentication</label>
+          </div>
+          <div class="task">
+            <input
+              type="checkbox"
+              id="toDo6"
+              name="toDo6"
+              value="toDo6"
+              disabled
+            />
+            <label for="toDo6"> Item Upload and Display</label>
           </div>
         </div>
+      </div> -->
+
+      <div class="title">
+        <h2>Inventory Management System</h2>
       </div>
 
-      <div class="lower__container">
-        <p>Continue to</p>
-        <a href="/items">
-          <button aria-label="Go to Inventory Management System">
-            Inventory Management System
-          </button>
-        </a>
-      </div>
+      <form id="authForm" action="/sign-up" method="POST">
+        <div class="input__fields">
+          <label for="">Name</label>
+          <input type="text" placeholder="Enter your username" />
+          <label for="">Password</label>
+          <input type="text" placeholder="Enter your password" />
+        </div>
+        <button class="signin" type="submit">Sign Up</button>
+      </form>
     </section>
 
     <script>
       var animation = lottie.loadAnimation({
-        container: document.getElementById("animation__container"),
+        container: document.getElementById("animationContainer"),
         renderer: "svg",
         loop: true,
         autoplay: true,
-        path: "assets/developing.json",
+        path: "assets/inventory.json",
       });
     </script>
   </body>

@@ -22,15 +22,11 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 app.get("/", (req, res) => {
-  res.render("landing-page");
+  res.render("login");
 });
 
 // Execute routes
 app.use("/items", itemRoutes);
-
-app.use("/items", (req, res) => {
-  res.render("new");
-});
 
 app.listen(PORT, () => {
   console.log(`Server has started on port: ${PORT}`);

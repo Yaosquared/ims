@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Page</title>
+    <title>Add Record Page</title>
     <%- include("./partial/external-assets") %>
   </head>
   <body>
@@ -21,7 +21,7 @@
 
     <!-- Add Form -->
     <form class="form" action="/items/create-item" method="POST">
-      <div class="input-field">
+      <div class="input__field">
         <label for="name">Name:</label>
         <input
           id="name"
@@ -32,7 +32,7 @@
           required
         />
       </div>
-      <div class="input-field">
+      <div class="input__field">
         <label for="category">Category:</label>
         <input
           id="category"
@@ -44,7 +44,7 @@
         />
       </div>
       <div class="dual">
-        <div class="input-field">
+        <div class="input__field">
           <label for="quantity">Quantity</label>
           <input
             id="quantity"
@@ -55,7 +55,7 @@
             required
           />
         </div>
-        <div class="input-field">
+        <div class="input__field">
           <label for="price">Price:</label>
           <input
             id="price"
@@ -68,7 +68,7 @@
           />
         </div>
       </div>
-      <div class="input-field">
+      <div class="input__field">
         <label for="description">Description:</label>
         <textarea
           name="description"

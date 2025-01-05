@@ -1,6 +1,6 @@
 {
   "name": "ims",
-  "version": "1.1.0",
+  "version": "1.7.0",
   "description": "A full stack inventory management system built with MongoDB/Mongoose, Express.js, EJS, and Node.js.",
   "main": "index.js",
   "type": "module",

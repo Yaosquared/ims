@@ -11,11 +11,18 @@
       <div class="title">
         <h1>Home Page</h1>
       </div>
-      <a href="/items/new">
-        <button class="add__icon">
-          <i class="fas fa-plus" title="Add record"></i>
-        </button>
-      </a>
+      <div class="header__buttons">
+        <a href="/items/new">
+          <button class="add__icon">
+            <i class="fas fa-plus" title="Add record"></i>
+          </button>
+        </a>
+        <a href="/">
+          <button class="signout__icon">
+            <i class="fas fa-sign-out-alt" title="Sign out"></i>
+          </button>
+        </a>
+      </div>
     </header>
     <hr />
 
@@ -27,8 +34,8 @@
         <input
           id="search-input"
           type="text"
-          name="key"
-          value="<%= searchData %>"
+          name="search"
+          value="<%= searchValue %>"
           placeholder="Type in here..."
           aria-label="Search for a record"
         />
@@ -47,7 +54,7 @@
             <th>Quantity</th>
             <th>Price</th>
             <th>Description</th>
-            <th>Created At</th>
+            <th>Created Date</th>
             <th>Actions</th>
           </tr>
           <!-- Loop through placeholderData and display each item -->
@@ -90,7 +97,7 @@
       <section class="pagination">
         <ul>
           <% for(let i = 1; i <= totalPages; i++) { %>
-          <a href="?key=<%= searchData %>&page=<%= i %>">
+          <a href="?search=<%= searchValue %>&page=<%= i %>">
             <li class="<%= currentPage === i ? 'active' : '' %>"><%= i %></li>
           </a>
           <% } %>

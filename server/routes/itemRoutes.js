@@ -5,8 +5,6 @@ const router = express.Router();
 
 router.get("/", itemController.items);
 
-router.get("/search", itemController.items);
-
 router.get("/new", itemController.addItemForm);
 router.post("/create-item", itemController.addItem);
 

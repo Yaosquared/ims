@@ -16,7 +16,7 @@ $lighterGreen: #66bb6a;
 $black: #0c0c0c;
 $lighterBlack: #060606;
 $white: #ffffff;
-$darkerGray: #a5a4a4;
+$darkerGray: #eae8e8;
 $gray: #bcbcbc;
 $lighterGray: #f2f2f2;
 
@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  row-gap: 1rem;
+  row-gap: 0.8rem;
   margin: 2rem 2rem 0 2rem;
   font-size: small;
   color: $black;
@@ -68,6 +68,57 @@ header {
   justify-content: space-between;
   align-items: center;
 
+  .header__buttons {
+    display: flex;
+    gap: 0.5rem;
+
+    a {
+      text-decoration: none;
+
+      .add__icon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: $green;
+        color: $lighterGreen;
+        padding: 0.5rem 0.6rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+          background-color: $darkerGreen;
+        }
+
+        i {
+          font-size: 1.4rem;
+          text-decoration: none;
+        }
+      }
+
+      .signout__icon {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.5rem 0.6rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+
+        &:hover {
+          background-color: $darkerGray;
+        }
+
+        i {
+          font-size: 1.4rem;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
   .title {
     display: flex;
     flex-direction: row;
@@ -88,32 +139,6 @@ header {
 
   h1 {
     font-size: large;
-  }
-
-  a {
-    text-decoration: none;
-
-    .add__icon {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-color: $green;
-      color: $lighterGreen;
-      padding: 0.5rem 0.6rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out;
-
-      i {
-        font-size: 1.5rem;
-        text-decoration: none;
-      }
-
-      &:hover {
-        background-color: $darkerGreen;
-      }
-    }
   }
 }
 
@@ -281,6 +306,10 @@ main {
       }
     }
   }
+
+  .pagination {
+    font-size: small;
+  }
 }
 
 .form {
@@ -290,12 +319,12 @@ main {
   display: flex;
   flex-direction: column;
 
-  .input-field {
+  .input__field {
     display: flex;
     flex-direction: column;
 
     input {
-      padding: 0.5rem;
+      padding: 0.7rem;
       background-color: transparent;
       border: none;
       border-radius: 5px;
@@ -315,7 +344,7 @@ main {
     }
 
     textarea {
-      padding: 0.5rem;
+      padding: 0.7rem;
       background-color: transparent;
       border: none;
       border-radius: 5px;
@@ -337,23 +366,25 @@ main {
   }
 
   label {
-    font-weight: bold;
+    font-weight: 500;
+    font-size: small;
   }
 
   .dual {
     width: 100%;
     display: flex;
     flex-direction: row;
-    gap: 5%;
+    gap: 4%;
 
-    .input-field {
-      width: 47.5%;
+    .input__field {
+      width: 48%;
     }
   }
 
   button {
     padding: 0.5rem;
     font-size: small;
+    font-weight: 600;
     border: none;
     border-radius: 5px;
     background-color: $lighterBlue;
@@ -518,80 +549,88 @@ footer {
   height: 100vh;
 
   .first__container {
-    height: 50%;
+    height: 60%;
     display: flex;
     flex-direction: row;
     align-items: end;
   }
 
   .second__container {
-    height: 50%;
+    height: 40%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
+    margin: auto;
+    gap: 1rem;
 
-    .upper__container {
+    .title {
+      text-align: center;
+    }
+
+    form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 0.5rem;
 
-      .title {
+      .input__fields {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        gap: 0.5rem;
+
+        label {
+          font-weight: 500;
+        }
+
+        input {
+          padding: 0.7rem;
+          background-color: transparent;
+          border: none;
+          border-radius: 5px;
+          box-shadow: inset 0 0 0 1px $gray;
+          color: $black;
+          font-family: "Inter", sans-serif;
+
+          &:focus {
+            border: none;
+            outline: none;
+          }
+
+          &:focus-within {
+            box-shadow: inset 0 0 0 2px $blue;
+          }
+        }
       }
 
-      .toDos {
-        display: flex;
-        flex-direction: column;
-        margin: auto;
-        font-size: medium;
+      button {
+        padding: 0.7rem;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        transition: background-color 0.2s ease-in-out;
+        background-color: $lighterBlue;
+        color: $white;
+        margin-top: 1rem;
+        border-radius: 5px;
 
-        .task {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-
-          input {
-            margin-right: 0.4rem;
-          }
+        &:hover {
+          background-color: $blue;
         }
       }
     }
 
-    .lower__container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0.5rem;
+    .signup {
+      width: 100%;
+      padding: 0.7rem;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: "Inter", sans-serif;
+      transition: background-color 0.2s ease-in-out;
+      background-color: $lighterGray;
+      border-radius: 5px;
 
-      p {
-        font-weight: bolder;
-      }
-
-      a {
-        width: 100%;
-        text-decoration: none;
-
-        button {
-          width: 100%;
-          font-family: "Inter", sans-serif;
-          font-size: medium;
-          padding: 1rem;
-          gap: 0.5rem;
-          background-color: $lighterBlue;
-          color: $white;
-          border: none;
-          border-radius: 10px;
-          box-shadow: inset 0 0 0 1px $lighterBlue;
-          transition: background-color 0.2s ease-in-out;
-          cursor: pointer;
-
-          &:hover {
-            background-color: $blue;
-          }
-        }
+      &:hover {
+        background-color: $darkerGray;
       }
     }
   }
@@ -654,8 +693,12 @@ footer {
 
   .landing__container {
     .first__container {
-      width: 80%;
+      width: 70%;
       margin: auto;
+    }
+
+    .second__container {
+      width: 60%;
     }
   }
 }
@@ -668,7 +711,7 @@ footer {
 
   header {
     h1 {
-      font-size: x-large;
+      font-size: larger;
     }
 
     .title {
@@ -685,11 +728,12 @@ footer {
       padding: 0.2rem 0.15rem;
 
       input {
-        font-size: medium;
+        font-size: small;
       }
 
       button {
-        padding: 0.6rem;
+        padding: 0.5rem;
+        font-size: small;
       }
     }
 
@@ -702,6 +746,8 @@ footer {
     .table__container {
       table {
         tr {
+          font-size: small;
+
           td {
             &:last-child {
               .action__button {
@@ -723,13 +769,13 @@ footer {
       .input-field {
         input {
           padding: 0.7rem;
-          font-size: medium;
+          font-size: small;
         }
       }
 
       button {
         padding: 0.7rem;
-        font-size: medium;
+        font-size: small;
       }
     }
 
@@ -742,35 +788,39 @@ footer {
 
   .landing__container {
     flex-direction: row;
-    align-items: center;
+    height: 100vh;
 
     .first__container {
-      width: 60%;
+      // border: 1px solid black;
+
+      height: auto;
     }
 
     .second__container {
-      justify-content: unset;
-      width: 40%;
-      height: auto;
-      gap: 2rem;
+      // border: 1px solid black;
 
-      .upper__container {
-        .title {
-          p {
+      height: auto;
+      padding: 2rem;
+
+      .title {
+        margin-top: 0;
+        font-size: large;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        .input__fields {
+          input {
             font-size: small;
           }
         }
-      }
-
-      .lower__container {
-        gap: 0.3rem;
-
-        p {
-          font-size: small;
-        }
 
         button {
-          padding: 0.8rem;
+          font-size: small;
+          border-radius: 5px;
         }
       }
     }
@@ -811,11 +861,6 @@ footer {
     .input-field {
       input {
         padding: 0.7rem;
-        font-size: medium;
-      }
-
-      textarea {
-        font-size: medium;
       }
     }
     .dual {
@@ -827,8 +872,7 @@ footer {
     }
 
     button {
-      padding: 0.7rem;
-      font-size: medium;
+      padding: 0.8rem;
     }
   }
 
@@ -842,11 +886,7 @@ footer {
     }
 
     .second__container {
-      .lower__container {
-        a {
-          width: 80%;
-        }
-      }
+      padding: 6rem;
     }
   }
 }

@@ -5,49 +5,42 @@ import Item from "../../models/item.js";
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => {
-    console.log("Connection Success");
+    console.log("MongoDB Connection Success");
   })
   .catch((err) => {
-    console.log("Connection Error");
+    console.log("MongoDB Connection Error");
     console.log(err);
   });
 
-// Display all items
-// const items = async (req, res) => {
-//   const searchData = req.query.key || "";
-//   const items = await Item.find({
-//     $or: [{ name: { $regex: searchData, $options: "i" } }],
-//   });
-//   res.render("home", { items, searchData });
-// };
-
-//==
+// Display all items, search for specific item, and limit display per page
 const items = async (req, res) => {
-  const searchData = req.query.key || "";
-  const page = req.query.page * 1 || 1;
-  const limit = req.query.limit * 1 || 10;
-  const skip = (page - 1) * limit;
+  const searchValue = req.query.search || "";
+  const pageValue = parseInt(req.query.page) || 1;
+  // console.log(`Page: ${pageValue}`);
+  const limitValue = parseInt(req.query.limit) || 10;
+  // console.log(`Limit: ${limitValue}`);
+  const skipValue = (pageValue - 1) * limitValue;
+  // console.log(`Skip: ${skipValue}`);
   const query = Item.find({
-    $or: [{ name: { $regex: searchData, $options: "i" } }],
+    $or: [{ name: { $regex: searchValue, $options: "i" } }],
   })
-    .skip(skip)
-    .limit(limit);
+    .skip(skipValue)
+    .limit(limitValue);
   const items = await query;
   res.render("home", {
     items,
-    searchData,
-    currentPage: page,
+    searchValue,
+    currentPage: pageValue,
     totalPages: Math.ceil(
       (await Item.countDocuments({
-        $or: [{ name: { $regex: searchData, $options: "i" } }],
-      })) / limit
+        $or: [{ name: { $regex: searchValue, $options: "i" } }],
+      })) / limitValue
     ),
   });
 };
-//==
 
 // Add item form
-const addItemForm = (req, res) => {
+const addItemForm = (_req, res) => {
   res.render("new");
 };
 

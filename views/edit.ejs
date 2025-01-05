@@ -25,7 +25,7 @@
       action="/items/<%= item._id %>?_method=PUT"
       method="POST"
     >
-      <div class="input-field">
+      <div class="input__field">
         <label for="name">Name:</label>
         <input
           id="name"
@@ -36,7 +36,7 @@
           value="<%= item.name %>"
         />
       </div>
-      <div class="input-field">
+      <div class="input__field">
         <label for="category">Category:</label>
         <input
           id="category"
@@ -48,7 +48,7 @@
         />
       </div>
       <div class="dual">
-        <div class="input-field">
+        <div class="input__field">
           <label for="quantity">Quantity</label>
           <input
             id="quantity"
@@ -59,7 +59,7 @@
             value="<%= item.quantity %>"
           />
         </div>
-        <div class="input-field">
+        <div class="input__field">
           <label for="price">Price:</label>
           <input
             id="price"
@@ -72,7 +72,7 @@
           />
         </div>
       </div>
-      <div class="input-field">
+      <div class="input__field">
         <label for="description">Description:</label>
         <textarea
           name="description"
