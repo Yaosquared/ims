@@ -22,12 +22,20 @@
         <h2>Inventory Management System</h2>
       </div>
 
-      <form id="authForm" action="/sign-up" method="POST">
+      <form id="authForm" action="/signup" method="POST">
         <div class="input__fields">
-          <label for="">Name</label>
-          <input type="text" placeholder="Enter your username" />
-          <label for="">Password</label>
-          <input type="text" placeholder="Enter your password" />
+          <label for="username">Name</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter your username"
+          />
+          <label for="password">Password</label>
+          <input
+            type="text"
+            name="password"
+            placeholder="Enter your password"
+          />
         </div>
         <button class="signin" type="submit">Sign Up</button>
       </form>
@@ -39,7 +47,7 @@
         renderer: "svg",
         loop: true,
         autoplay: true,
-        path: "assets/inventory.json",
+        path: "public/inventory.json",
       });
     </script>
   </body>

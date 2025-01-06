@@ -22,16 +22,25 @@
         <h2>Inventory Management System</h2>
       </div>
 
-      <form id="authForm" action="/items">
+      <form id="authForm" action="/signin" method="POST">
         <div class="input__fields">
-          <label for="">Username</label>
-          <input type="text" placeholder="Enter your username" />
-          <label for="">Password</label>
-          <input type="text" placeholder="Enter your password" />
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter your username"
+          />
+          <label for="password">Password</label>
+          <input
+            type="text"
+            name="password"
+            placeholder="Enter your password"
+            autocomplete="off"
+          />
         </div>
         <button class="signin" type="submit">Sign In</button>
       </form>
-      <a href="/register">
+      <a href="/signup">
         <button class="signup">Sign Up</button>
       </a>
     </section>
@@ -42,7 +51,7 @@
         renderer: "svg",
         loop: true,
         autoplay: true,
-        path: "assets/inventory.json",
+        path: "public/inventory.json",
       });
     </script>
   </body>

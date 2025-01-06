@@ -6,7 +6,7 @@
     <title>Home Page</title>
     <%- include("./partial/external-assets") %>
   </head>
-  <body class="content">
+  <body>
     <header>
       <div class="title">
         <h1>Home Page</h1>
@@ -17,11 +17,11 @@
             <i class="fas fa-plus" title="Add record"></i>
           </button>
         </a>
-        <a href="/">
-          <button class="signout__icon">
+        <form action="/signout" method="POST">
+          <button class="signout__icon" type="submit">
             <i class="fas fa-sign-out-alt" title="Sign out"></i>
           </button>
-        </a>
+        </form>
       </div>
     </header>
     <hr />

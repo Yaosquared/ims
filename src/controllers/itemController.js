@@ -27,7 +27,7 @@ const items = async (req, res) => {
     .skip(skipValue)
     .limit(limitValue);
   const items = await query;
-  res.render("home", {
+  res.status(200).render("home", {
     items,
     searchValue,
     currentPage: pageValue,
@@ -39,48 +39,48 @@ const items = async (req, res) => {
   });
 };
 
-// Add item form
+// Display add item form
 const addItemForm = (_req, res) => {
-  res.render("new");
+  res.status(200).render("new");
 };
 
 // Create item record
 const addItem = async (req, res) => {
   const item = new Item(req.body);
   await item.save();
-  res.redirect("/items");
+  res.status(201).redirect("/items");
 };
 
 // View item details
 const viewItem = async (req, res) => {
   const item = await Item.findById(req.params.id);
-  res.render("details", { item });
+  res.status(200).render("details", { item });
 };
 
 // Update user form
 const editItemForm = async (req, res) => {
   const item = await Item.findById(req.params.id);
-  res.render("edit", { item });
+  res.status(200).render("edit", { item });
 };
 
 // Update item
 const updateItem = async (req, res) => {
   const { id } = req.params;
   const item = await Item.findByIdAndUpdate(id, { ...req.body });
-  res.redirect(`/items/${id}`);
+  res.status(200).redirect(`/items/${id}`);
 };
 
 // Display delete confirmation modal/
 const deleteItemModal = async (req, res) => {
   const item = await Item.findById(req.params.id);
-  res.render("delete", { item });
+  res.status(200).render("delete", { item });
 };
 
 // Delete item
 const deleteItem = async (req, res) => {
   const { id } = req.params;
   await Item.findByIdAndDelete(id);
-  res.redirect("/items");
+  res.status(200).redirect("/items");
 };
 
 export default {

@@ -1,6 +1,7 @@
 # IMS
 
 ### View Live Preview Here
+
 [Inventory Management System (IMS)](https://ims-mm79.onrender.com/)
 
 ### Description
@@ -9,25 +10,26 @@ Final project for Backend Web Development Training hosted by Bayan Academy. An I
 
 ### Key Features
 
-* Item Management:
-  * Create: Add new items to the inventory.
-  * Read: View a list of all items in the inventory.
-  * Update: Edit details of existing items.
-  * Delete: Remove items from the inventory
+- Item Management:
+  - Create: Add new items to the inventory.
+  - Read: View a list of all items in the inventory.
+  - Update: Edit details of existing items.
+  - Delete: Remove items from the inventory
 
 ### Additional Functionalities
 
-* Responsive Design: The application is fully responsive and optimized for mobile devices.
-* Search Functionality: Easily search the inventory for quick item retrieval.
-* Pagination Control: Navigate through large datasets efficiently.
-* Deployment: Deployed with Render for reliable and scalable hosting.
+- Responsive Design: Fully responsive design that ensures optimal usability across various devices.
+- Search Functionality: Easily search inventory for quick item retrieval.
+- Pagination Control: Navigate through large datasets efficiently.
+- Authentication: Securely track and modify item records with JWT authentication.
+- Deployment: Deployed with Render for reliable and scalable hosting.
 
 ## Getting Started
 
 ### Pre-Requisites
 
-* Node.js
-* MongoDB
+- Node.js
+- MongoDB
 
 ### Install Dependencies
 
@@ -40,6 +42,7 @@ npm install
 ```bash
 PORT=<your_port>
 MONGODB_URI=<your_mongodb_uri>
+JWT_SECRET=<your_jwt_key>
 ```
 
 ### Run Development Server

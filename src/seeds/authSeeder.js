@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Item = require("../models/item");
+import mongoose from "mongoose";
+import Auth from "../models/auth";
 
 // Database connection
 mongoose
@@ -13,12 +13,10 @@ mongoose
   });
 
 const seedDb = async () => {
-  const items = new Item({
-    name: "Sample Item 3",
-    category: "Electronics",
-    quantity: 10,
-    price: 150.45,
-    description: "A sample electronic item 3",
+  const items = new Auth({
+    username: "testUsername",
+    password: "testPassword",
+    token: "testToken",
   });
   await items.save();
   console.log("Data inserted!");

@@ -71,7 +71,7 @@ header .header__buttons a .add__icon i {
   font-size: 1.4rem;
   text-decoration: none;
 }
-header .header__buttons a .signout__icon {
+header .header__buttons form .signout__icon {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -81,10 +81,10 @@ header .header__buttons a .signout__icon {
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
-header .header__buttons a .signout__icon:hover {
+header .header__buttons form .signout__icon:hover {
   background-color: #eae8e8;
 }
-header .header__buttons a .signout__icon i {
+header .header__buttons form .signout__icon i {
   font-size: 1.4rem;
   text-decoration: none;
 }
